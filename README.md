@@ -1,5 +1,5 @@
 This repo is was started with the code from the Realtek USB driver
-RTL8852BU_WiFi_linux_v1.15.0.1-0-g487ee886.20210714. The current code improves
+RTL8852BU_WiFi_linux_v1.19.3-45-g7583a804a.20230505. The current code improves
 on the Realtek code by reworking the debug output to avoid spamming the logs.
 In the current settings, messages from RTW_ERR(), RTW_WARNING(), and
 RTW_WARNING() will be output.
@@ -12,17 +12,12 @@ The driver supports rtl8832bu/rtl8852bu chipsets.
 
 This driver currently handles the following devices:
 
-* BUFFALO WI-U3-1200AX2(/N) with USB ID 0411:0312
-* ASUS USB-AX56 with USB ID 0b05:1997
-* ASUS USB-AX56 with USB ID 0b05:1a62
-* EDUP EP-AX1696GS with USB ID 0bda:8832
-* Fenvi FU-AX1800P with USB ID 0bda:885c
+* ASUS USB-AX55 with USB ID 0b05:1a62
 * Realtek Demo Board with USB ID 0bda:8832
+* Realtek Demo Board with USB ID 0bda:883a
+* Realtek Demo Board with USB ID 0bda:8852
 * Realtek Demo Board with USB ID 0bda:885a
-* Realtek Demo Board with USB ID 0bda:885c
-* D-Link DWA-X1850 with USB ID 2001:3321
-* TP-Link AX1800 with USB ID 2357:013f
-* ipTIME AX2000U with USB ID 0bda:8832
+* Realtek Demo Board with USB ID 0bda:a85b
 
 The device probably comes with a configuration that appears to be a USB disk,
 which contains a Windows driver. If a 'lsusb' command shows the ID 0bda:1a2b,
