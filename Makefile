@@ -38,6 +38,9 @@ EXTRA_LDFLAGS += --strip-debug
 
 CONFIG_AUTOCFG_CP = n
 
+SUBARCH := $(shell uname -m | sed -e s/i.86/i386/ | sed -e s/ppc/powerpc/ | sed -e s/armv.l/arm/)
+ARCH ?= $(SUBARCH)
+
 ########################## WIFI IC ############################
 CONFIG_RTL8852A = n
 CONFIG_RTL8852B = y
