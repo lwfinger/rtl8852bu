@@ -4503,7 +4503,7 @@ exit:
 	return;
 }
 
-void session_tracker_chk_for_adapter(_adapter *adapter)
+static void session_tracker_chk_for_adapter(_adapter *adapter)
 {
 	struct sta_priv *stapriv = &adapter->stapriv;
 	struct sta_info *sta;
@@ -4534,7 +4534,7 @@ void session_tracker_chk_for_adapter(_adapter *adapter)
 #endif
 }
 
-void session_tracker_cmd_hdl(_adapter *adapter, struct st_cmd_parm *parm)
+static void session_tracker_cmd_hdl(_adapter *adapter, struct st_cmd_parm *parm)
 {
 	u8 cmd = parm->cmd;
 	struct sta_info *sta = parm->sta;
@@ -4696,7 +4696,7 @@ exit:
 #endif
 
 
-void rtw_ac_parm_cmd_hdl(_adapter *padapter, struct _ADAPTER_LINK *padapter_link, u8 *_ac_parm_buf, int ac_type)
+static void rtw_ac_parm_cmd_hdl(_adapter *padapter, struct _ADAPTER_LINK *padapter_link, u8 *_ac_parm_buf, int ac_type)
 {
 
 	u32 ac_parm_buf;
@@ -4957,7 +4957,7 @@ exit:
 
 }
 
-void rtw_getrttbl_cmd_cmdrsp_callback(_adapter *padapter,  struct cmd_obj *pcmd)
+static void rtw_getrttbl_cmd_cmdrsp_callback(_adapter *padapter,  struct cmd_obj *pcmd)
 {
 
 	rtw_free_cmd_obj(pcmd);
@@ -5018,7 +5018,7 @@ exit:
 }
 
 char UNKNOWN_CID[16] = "UNKNOWN_EXTRA";
-char *rtw_extra_name(struct drvextra_cmd_parm *pdrvextra_cmd)
+static char *rtw_extra_name(struct drvextra_cmd_parm *pdrvextra_cmd)
 {
 	switch(pdrvextra_cmd->ec_id) {
 	case NONE_WK_CID:

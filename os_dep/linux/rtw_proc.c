@@ -2409,7 +2409,7 @@ exit:
 #endif /* CONFIG_DFS_MASTER */
 
 #ifdef CONFIG_80211N_HT
-int proc_get_rx_ampdu_size_limit(struct seq_file *m, void *v)
+static int proc_get_rx_ampdu_size_limit(struct seq_file *m, void *v)
 {
 	struct net_device *dev = m->private;
 	_adapter *adapter = (_adapter *)rtw_netdev_priv(dev);
@@ -5556,7 +5556,7 @@ static const struct rtw_proc_ops rtw_odm_proc_sseq_fops = {
 #endif
 };
 
-struct proc_dir_entry *rtw_odm_proc_init(struct net_device *dev)
+static struct proc_dir_entry *rtw_odm_proc_init(struct net_device *dev)
 {
 	struct proc_dir_entry *dir_odm = NULL;
 	struct proc_dir_entry *entry = NULL;
@@ -5600,7 +5600,7 @@ exit:
 	return dir_odm;
 }
 
-void rtw_odm_proc_deinit(_adapter  *adapter)
+static void rtw_odm_proc_deinit(_adapter  *adapter)
 {
 	struct proc_dir_entry *dir_odm = NULL;
 	int i;

@@ -153,6 +153,7 @@ struct _ADAPTER_LINK;
 
 #ifdef CONFIG_BR_EXT
 	#include <rtw_br_ext.h>
+	void netdev_br_init(struct net_device *netdev);
 #endif /* CONFIG_BR_EXT */
 
 #ifdef CONFIG_FPGA_INCLUDED
