@@ -38,6 +38,12 @@ EXTRA_LDFLAGS += --strip-debug
 
 CONFIG_AUTOCFG_CP = n
 
+ifeq ("","$(wildcard MOK.der)")
+NO_SKIP_SIGN := y
+else
+NO_SKIP_SIGN := n
+endif
+
 SUBARCH := $(shell uname -m | sed -e s/i.86/i386/ | sed -e s/ppc/powerpc/ | sed -e s/armv.l/arm/)
 ARCH ?= $(SUBARCH)
 
@@ -736,6 +742,14 @@ modules:
 
 strip:
 	$(CC_STRIP) $(MODULE_NAME).ko --strip-unneeded
+
+sign:
+ifeq ($(NO_SKIP_SIGN), y)
+	@openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=Custom MOK/"
+	@mokutil --import MOK.der
+endif
+	@$(KSRC)/scripts/sign-file sha256 MOK.priv MOK.der 8852bu.ko
+sign-install: all sign install
 
 install:
 	install -p -m 644 $(MODULE_NAME).ko  $(MODDESTDIR)
