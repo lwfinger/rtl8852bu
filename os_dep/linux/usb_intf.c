@@ -140,7 +140,7 @@ static void rtw_dev_shutdown(struct device *dev)
 #define USB_VENDOR_ID_ASUS  		0x0B05
 #define USB_VENDOR_ID_BUFFALO		0x0411
 #define USB_VENDOR_ID_DLINK 		0x2001
-#define USB_VENDOR_ID_TPLINK 		0x2357
+#define USB_VENDOR_ID_TPLINK 		0x35bc
 
 /* DID_USB_v916_20130116 */
 static struct usb_device_id rtw_usb_id_tbl[] = {
@@ -154,6 +154,9 @@ static struct usb_device_id rtw_usb_id_tbl[] = {
 
 	/*=== ASUS USB-AX55 =======*/
 	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDOR_ID_ASUS, 0x1a62, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
+
+	/*=== TPLINK 1750U Nano =======*/
+	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDOR_ID_TPLINK, 0x0108, 0xff, 0xff, 0xff), .driver_info = RTL8852B},
 #endif /* CONFIG_RTL8852B */
 #ifdef CONFIG_RTL8852BP
 	/*=== Realtek demoboard ===*/
