@@ -6429,6 +6429,9 @@ static void rtw_get_chbwoff_from_cfg80211_chan_def(
 #endif /* (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 8, 0)) */
 
 static int cfg80211_rtw_set_monitor_channel(struct wiphy *wiphy
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 13, 0))
+	, struct net_device *netdevice
+#endif
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 8, 0))
 	, struct cfg80211_chan_def *chandef
 #else
@@ -6437,6 +6440,9 @@ static int cfg80211_rtw_set_monitor_channel(struct wiphy *wiphy
 #endif
 	)
 {
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 13, 0))
+	(void) netdevice;
+#endif
 	_adapter *padapter = wiphy_to_adapter(wiphy);
 	struct rtw_chan_def target_chdef = {0};
 	u8 ht_option;
